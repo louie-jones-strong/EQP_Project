@@ -1,0 +1,3 @@
+iterations = 700
+step = 1
+clear = 0

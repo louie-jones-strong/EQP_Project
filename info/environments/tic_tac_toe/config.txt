@@ -1,0 +1,11 @@
+name = tick_tack_toe
+number of matches = 2
+number of testing matches = 1
+number of inputs = 9
+number of outputs = 1
+min of each output = 0
+max of each output = 8
+precision of each output = 1
+structure array = 50,50
+Htan on = 0
+bias on = 0

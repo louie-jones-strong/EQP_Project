@@ -1,0 +1,3 @@
+name = evo
+max number of population = 40
+min number of population = 20

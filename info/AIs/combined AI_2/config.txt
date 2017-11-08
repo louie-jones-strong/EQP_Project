@@ -1,0 +1,5 @@
+name = combined AI_2
+learn dataset = 10
+evo = 15
+min population = 10
+max population = 20

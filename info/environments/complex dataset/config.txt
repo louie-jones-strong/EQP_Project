@@ -1,0 +1,11 @@
+name = complex dataset
+number of matches = 1
+number of testing matches = 150
+number of inputs = 4
+number of outputs = 1
+min of each output = 0
+max of each output = 3
+precision of each output = 1
+structure array = 10
+Htan on = 0
+bias on = 0
