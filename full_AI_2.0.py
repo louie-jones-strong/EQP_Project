@@ -36,6 +36,7 @@ class main(object):
                     memory = self.AI.get_memory()
                     address = self.address_main + "\\data\\memory\\" + str(self.Title)
                     self.save_memory(memory,address,"\\" + str(self.Title) + "_final.txt")
+
         else:# user input
             start_time_mark = time.time()
             while True:
@@ -69,6 +70,7 @@ class main(object):
     def setup(self):
         os.system("title "+"Back Bone Code")
 
+        # setup veriables 
         self.AI_number = 0
         self.env_number = 0
         self.run_best = 0
@@ -137,7 +139,7 @@ class main(object):
     def save_memory(self,memory,address_folder,address_file):
 
         address = address_folder
-        if not os.path.exists(address):
+        if not os.path.exists(address):#makes floder if doesn't exists
             os.makedirs(address)
 
         address += address_file
@@ -149,7 +151,7 @@ class main(object):
     def save_fitness(self,fitness,iterations,time_taken,start_time_mark,user_input):
         time_taken = round( time_taken,2)
         fitness = np.sort(fitness)
-        if user_input == True:
+        if user_input == True:#floder to put it in
             address = self.address_main + "\\data\\fitness_user_input\\"+str(self.Title)+".csv"
         else:
             address = self.address_main + "\\data\\fitness\\"+str(self.Title)+".csv"
@@ -164,7 +166,7 @@ class main(object):
         file.close()
         return
 
-    def pick_AI_and_evo(self):
+    def pick_AI_and_evo(self): # for users to pick withc aI and evo to use
         successful = False
         while successful == False:
             self.auto_train = False
@@ -187,7 +189,7 @@ class main(object):
 
         return
 
-    def AI_env_read_in(self):
+    def AI_env_read_in(self):#once picked
         
         
         #AI config
@@ -226,7 +228,7 @@ class main(object):
 
         os.system("cls")
 
-        if  str(self.AI) == "neural network" and not(self.Environment == "simple dataset" or self.Environment == "complex dataset"):
+        if  str(self.AI) == "neural network" and not(self.Environment == "simple dataset" or self.Environment == "complex dataset"): # check it is dataset
             print("can't run this!!!!!")
             print("")
             return False
@@ -243,7 +245,7 @@ class main(object):
 
             return True
 
-    def render_run(self):
+    def render_run(self):# add error checking (low need)
         self.run_best = True
         while True:
             pygame.mixer.music.play()
