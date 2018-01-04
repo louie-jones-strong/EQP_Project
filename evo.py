@@ -2,13 +2,9 @@ import numpy as np
 import random
 import ann_runner
 import time
+from common_code import tag_edit
 
 class main(object):
-
-    def tag_edit(self,tag,line): 
-        lenght_of_tag = len(tag)
-        text_on_line = str(line[lenght_of_tag:])
-        return text_on_line
 
     def setup(self,address,number_of_matches,number_of_testing_matches,number_of_outputs,number_of_inputs,environment,run_best,each_output_min,each_output_max,precison_of_output,structure_array,Htan_on,bias_on,min_population = "test",max_population = "test"):
 
@@ -26,12 +22,12 @@ class main(object):
 
         file.readline()
         if max_population == "test":
-            self.max_number_of_population = int(self.tag_edit("max number of population = ",file.readline())) #max number of population
+            self.max_number_of_population = int(tag_edit("max number of population = ",file.readline())) #max number of population
         else:
             self.max_number_of_population = max_population
 
         if min_population == "test":
-            self.min_number_of_population = int(self.tag_edit("min number of population = ",file.readline())) #min number of population
+            self.min_number_of_population = int(tag_edit("min number of population = ",file.readline())) #min number of population
         else:
             self.min_number_of_population = min_population
 

@@ -3,6 +3,7 @@ import time
 import pygame
 import os
 import importlib
+from common_code import tag_edit
 
 class main(object):
     
@@ -78,9 +79,9 @@ class main(object):
         self.address_main = os.getcwd() + "\\info"
 
         file = open(self.address_main + "\\config.txt")
-        self.max_iterations = int(self.tag_edit("iterations = ",str(file.readline()[:-1])))
-        self.step = int(self.tag_edit("step = ",str(file.readline()[:-1])))
-        self.clear = bool(int(self.tag_edit("clear = ",str(file.readline()[:-1]))))
+        self.max_iterations = int(tag_edit("iterations = ",str(file.readline()[:-1])))
+        self.step = int(tag_edit("step = ",str(file.readline()[:-1])))
+        self.clear = bool(int(tag_edit("clear = ",str(file.readline()[:-1]))))
         file.close()
 
         self.address_sound = self.address_main + "\\sounds\\ring.ogg"
@@ -107,11 +108,6 @@ class main(object):
 
         self.main_code()
         return
-    
-    def tag_edit(self,tag,line): 
-        lenght_of_tag = len(tag)
-        text_on_line = str(line[lenght_of_tag:])
-        return text_on_line
     
     def output(self,fitness,time_mark,start_time_mark,iterations,step):
         fitness = np.sort(fitness)
@@ -197,7 +193,7 @@ class main(object):
         temp = os.listdir(self.address_AI)
         self.address_AI = self.address_AI + temp[self.AI_number] + "\\config.txt"
         file = open(self.address_AI,"r")
-        self.AI = self.tag_edit("name = ",str(file.readline()))
+        self.AI = tag_edit("name = ",str(file.readline()))
         AI_name = self.AI[:-1]
         self.AI = importlib.import_module(AI_name)
         self.AI = self.AI.main()
@@ -210,19 +206,19 @@ class main(object):
         self.address_environment = self.address_environment + temp[self.env_number] + "\\config.txt"
 
         file = open(self.address_environment,"r")
-        Environment_name = self.tag_edit("name = ",str(file.readline()[:-1]))
+        Environment_name = tag_edit("name = ",str(file.readline()[:-1]))
         self.Environment = importlib.import_module(Environment_name)
         self.Environment = self.Environment.game_class()
-        self.number_of_matches = int(self.tag_edit("number of matches = ",str(file.readline())))
-        self.number_of_testing_matches = int(self.tag_edit("number of testing matches = ",str(file.readline())))
-        self.number_of_inputs = int(self.tag_edit("number of inputs = ",str(file.readline())))
-        self.number_of_outputs = int(self.tag_edit("number of outputs = ",str(file.readline())))
-        self.each_output_min = int(self.tag_edit("min of each output = ",str(file.readline())))
-        self.each_output_max = int(self.tag_edit("max of each output = ",str(file.readline())))
-        self.precison_of_output = float(self.tag_edit("precision of each output = ",str(file.readline())))
-        self.structure_array = self.tag_edit("structure array = ",str(file.readline()))
-        Htan_on = int(self.tag_edit("Htan_on = ",str(file.readline())))
-        bias_on = int(self.tag_edit("bias_on = ",str(file.readline())))
+        self.number_of_matches = int(tag_edit("number of matches = ",str(file.readline())))
+        self.number_of_testing_matches = int(tag_edit("number of testing matches = ",str(file.readline())))
+        self.number_of_inputs = int(tag_edit("number of inputs = ",str(file.readline())))
+        self.number_of_outputs = int(tag_edit("number of outputs = ",str(file.readline())))
+        self.each_output_min = int(tag_edit("min of each output = ",str(file.readline())))
+        self.each_output_max = int(tag_edit("max of each output = ",str(file.readline())))
+        self.precison_of_output = float(tag_edit("precision of each output = ",str(file.readline())))
+        self.structure_array = tag_edit("structure array = ",str(file.readline()))
+        Htan_on = int(tag_edit("Htan_on = ",str(file.readline())))
+        bias_on = int(tag_edit("bias_on = ",str(file.readline())))
 
         file.close()
 

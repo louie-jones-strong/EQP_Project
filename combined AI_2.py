@@ -1,13 +1,9 @@
 import time
 import numpy as np
 import importlib
+from common_code import tag_edit
 
 class main(object):
-
-    def tag_edit(self,tag,line): 
-        lenght_of_tag = len(tag)
-        text_on_line = str(line[lenght_of_tag:])
-        return text_on_line
 
     def setup(self,address,number_of_matches,number_of_testing_matches,number_of_outputs,number_of_inputs,environment,run_best,each_output_min,each_output_max,precison_of_output,structure_array,Htan_on,bias_on):
         import brute_force as BF
@@ -32,10 +28,10 @@ class main(object):
 
         file = open(address,"r")
         file.readline()
-        self.dataset_start = int(self.tag_edit("learn dataset = ",file.readline())) 
-        self.evo_start = int(self.tag_edit("evo = ",file.readline())) 
-        self.evo_min_pop = int(self.tag_edit("min population = ",file.readline())) 
-        self.evo_max_pop = int(self.tag_edit("max population = ",file.readline())) 
+        self.dataset_start = int(tag_edit("learn dataset = ",file.readline())) 
+        self.evo_start = int(tag_edit("evo = ",file.readline())) 
+        self.evo_min_pop = int(tag_edit("min population = ",file.readline())) 
+        self.evo_max_pop = int(tag_edit("max population = ",file.readline())) 
         file.close()
 
 
@@ -111,16 +107,16 @@ class main(object):
         address_environment = self.address[:-len("AIs\combined AI_2\config.txt")] + "environments\complex dataset\config.txt"
         file = open(address_environment,"r")
 
-        Environment = self.tag_edit("name = ",str(file.readline()[:-1]))
+        Environment = tag_edit("name = ",str(file.readline()[:-1]))
         Environment = importlib.import_module(Environment)
-        number_of_matches = int(self.tag_edit("number of matches = ",str(file.readline())))
+        number_of_matches = int(tag_edit("number of matches = ",str(file.readline())))
         number_of_inputs = self.number_of_inputs
         number_of_outputs = self.number_of_outputs
         file.readline()
         file.readline()
         file.readline()
-        each_output_min = int(self.tag_edit("min of each output = ",str(file.readline())))
-        each_output_max = int(self.tag_edit("max of each output = ",str(file.readline())))
+        each_output_min = int(tag_edit("min of each output = ",str(file.readline())))
+        each_output_max = int(tag_edit("max of each output = ",str(file.readline())))
         precison_of_output = self.precison_of_output
         structure_array = self.structure_array
         Htan_on = self.Htan_on
