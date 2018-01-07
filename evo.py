@@ -4,6 +4,7 @@ import ann_runner
 import time
 from common_code import tag_edit
 
+
 class main(object):
 
     def setup(self,address,number_of_matches,number_of_testing_matches,number_of_outputs,number_of_inputs,environment,run_best,each_output_min,each_output_max,precison_of_output,structure_array,Htan_on,bias_on,min_population = "test",max_population = "test"):
