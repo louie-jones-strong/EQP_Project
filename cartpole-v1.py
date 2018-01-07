@@ -1,6 +1,5 @@
 import gym
 import numpy as np
-from multiprocessing import Pool
 
 class game_class(object):
 
@@ -9,7 +8,6 @@ class game_class(object):
     turns = [0]
     finished = [0]
     fitness = [0]
-    pools = Pool(20)
 
     def start_games(self,game_IDs,start_firsts):
 
